@@ -1,0 +1,96 @@
+
+body {
+    background-color: #c1bdba;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.form {
+    background: #13232f;
+    padding: 40px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px #13232f;
+}
+
+#tabsButtons {
+    padding: 0;
+    width: 100%;
+    margin: 0 0 40px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    margin:0 0 40px;
+}
+
+a {
+    padding: 15px;
+    background: #a9a9a9;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    cursor:pointer;
+    transition:.5s ease;
+}
+
+a:hover {
+    background: #1ab188;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.labelWrap {
+    position:relative;
+    margin-bottom:40px;
+    width: 100%;
+}
+
+label {
+    font-size: 20px;
+    color: #ffffff;
+    background: #13232f;
+    position:absolute;
+    transform:translateY(6px);
+    left:13px;
+    transition:all 0.25s ease;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    font-size:22px;
+}
+
+label.active {
+    transform:translateY(50px);
+    left:2px;
+    font-size:14px;
+}
+
+label.active.requirement {
+    opacity: 0;
+}
+
+input {
+    font-size: 22px;
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    background: #13232f;
+}
+
+.requirement {
+    margin:2px;
+    color:#1ab188;
+}
+
+.submitButton {
+    width: 100%;
+    padding:15px 0;
+    background: #1ab188;
+    font-size:2rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+}
