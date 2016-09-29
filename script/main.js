@@ -67,7 +67,6 @@ function main() {
 
         var alphabetRegex = /^[a-zA-Z]+$/;
         var emailRegex = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-        var add_regex = /^[0-9a-zA-Z]+$/;
         var passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8})$/;
 
         if (firstName.length == 0) {
