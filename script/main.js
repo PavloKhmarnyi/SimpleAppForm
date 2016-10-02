@@ -20,7 +20,7 @@ function main() {
     });
 
     // Events hendler for form and inputs
-    $('.form').find('input').on('keyup blur focus', function (e) {
+    $('.form').find('input').on('keyup blur focus click input', function (e) {
 
         var $this = $(this),
             label = $this.prev('label');
@@ -38,10 +38,10 @@ function main() {
                 label.removeClass('highlight');
             }
         } else if (e.type === 'focus') {
-            $('#signUpHeader').css('color', 'white');
+            $('#signUpHeader').css('color', '#ffffff');
             $('#signUpHeader').text('Sign Up');
 
-            $('#logInHeader').css('color', 'white');
+            $('#logInHeader').css('color', '#ffffff');
             $('#logInHeader').text('Log In');
 
             if( $this.val() === '' ) {
@@ -50,8 +50,41 @@ function main() {
             else if( $this.val() !== '' ) {
                 label.addClass('highlight');
             }
+        } else if (e.type === 'click' || e.type === 'input') {
+            var id = $(this).attr('id');
+            label.css('color', 'white');
+            switch (id) {
+                case 'firstname':
+                    label.text('First name');
+                    break;
+                case 'lastname':
+                    label.text('Last name');
+                    break;
+                case 'email':
+                    label.text('Email');
+                    break;
+                case 'country':
+                    label.text('Country');
+                    break;
+                case 'city':
+                    label.text('City');
+                    break;
+                case 'password':
+                    label.text('Set password');
+                    break;
+                case 'confirmPassword':
+                    label.text('Confirm password');
+                    break;
+            }
+            var $span = $('<span>*</span>').css('color', '#1ab188');
+            if (id === 'password') {
+                $span.append(' (8 char\'s incl. upp\'s, low\'s, num\'s)');
+            }
+            if (id !== 'emailInput' && id !== 'passwordInput') {
+                label.append($span);
+            }
+            //label.append($span);
         }
-
     });
 
     // Event handler for sign up button. This method checks inputs on validate signs.
@@ -100,7 +133,7 @@ function main() {
             $("#city").focus();
             return false;
         } else if (!password.match(passwordRegex) || password.length == 0) {
-            $('#labelSetPassword').text("* For your password please use upper- lowercases and num's *");
+            $('#labelSetPassword').text("* Please use upper- lowercases and num's *");
             $('#labelSetPassword').css('color', 'red');
             $("#password").focus();
             return false;
@@ -139,7 +172,7 @@ function main() {
         if (object && object.password === password) {
             openProfile(object);
         } else {
-            $('#logInHeader').text("Password or email is wrong or user is not exist!");
+            $('#logInHeader').text("Password or email is wrong or user does not exist!");
             $('#logInHeader').css('color', 'red');
             $('#logInHeader').focus();
         }
